@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <div id="nav">
+        <div><a href="frontend.html">Frontend</a></div>
+        <div><a href="backend.html">Backend</a></div>
+    </div>
+    
+    <form id="form">
+       <div id="main">
+        <input type="text" id="name" placeholder="enter name">
+        <input type="text" id="avtar" placeholder="paste imgUrl">
+        <input type="text" id="logo" placeholder="paste logoUrl">
+        <input type="text" id="role" placeholder="enter role">
+        <input type="submit">
+       </div>
+    </form>
+</body>
+</html>
+
+<script>
+
+    document.querySelector("#form")
+    document.addEventListener("submit",investorfunction)
+
+    // var data=[]; //wheneer we refresh the page we get array length=0.
+
+    // var data=JSON.parse(localStorage.getItem("investorData"))  //wheneer getting the item we use parse 
+    //after refresh previous value will be there
+
+    //whenever it is null
+    var data
+    if(JSON.parse(localStorage.getItem("investorData"))==null)
+    {
+        data=[];
+    }
+    else{
+        data=JSON.parse(localStorage.getItem("investorData"));
+    }
+    
+    //array of object
+
+    function investorfunction()
+    {
+        event.preventDefault();
+
+        var investorobj={
+            name:document.querySelector("#name").value,
+            avtar:document.querySelector("#avtar").value,
+            logo:document.querySelector("#logo").value,
+            role:document.querySelector("#role").value,
+
+        // name:form.name.value,
+        // avtar:form.avtar.value,
+        // logo:form.logo.value,
+        // role:form.role.value,    
+       };
+
+       //pushing the obj in an array--> data=[],
+       data.push(investorobj);
+       console.log(data);
+           
+       //when we click to submit button my expected outup will show 
+       //in frontend page, that menans it will take the data from localstorage
+
+       localStorage.setItem("investorData",JSON.stringify(data))
+    }
+</script>
+
+
+
+
+<!-- var investorInfo=[
+    {investor_image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg",
+    name:"Vijay Shekhar Sharma", investor_roll:"Founder & CEO",
+    logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg"},
+
+    {investor_image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+    name:"Kunal Shah", investor_roll:"Founder",
+    logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png"},
+
+    {investor_image:"https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+    name:"Amrish Rau", investor_roll:"CEO",
+    logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png"},
+]; -->

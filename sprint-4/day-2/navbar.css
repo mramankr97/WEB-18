@@ -1,3 +1,40 @@
 *{
     margin: 0px;
+    padding: 0px;
+}
+#nav{
+    width: 60%;
+    margin: auto;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+    background-color: rgb(184, 224, 224);
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+#nav>div{
+    color: white;
+}
+#main{
+    margin: auto;
+    width: 70%;
+    margin-top: 10px;
+    justify-content: space-around;
+}
+a{
+    color: black;
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,auto);
+    gap: 20px;
+}
+#container>di{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+p+img{
+    height: 50px;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="navbar.css">
+</head>
+<body>
+    <div id="nav">
+        <div><a href="frontend.html">Frontend</a></div>
+        <div><a href="backend.html">Backend</a></div>
+    </div>
+    
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+
+//get the data from backend to frontend
+var data=JSON.parse(localStorage.getItem("investorData"));
+console.log(data)
+
+data.forEach(function(el){
+
+    var box=document.createElement("div");
+
+    var investor_image=document.createElement("img");
+    investor_image.setAttribute("src",el.avtar);
+
+    var investor_name=document.createElement("h3");
+    investor_name.innerText=el.name;
+
+    var investor_role=document.createElement("p");
+    investor_role.innerText=el.role;
+
+    var company_logo=document.createElement("img");
+    company_logo.setAttribute("src",el.logo);
+
+    box.append(investor_image,investor_name,investor_role,company_logo)
+
+    document.querySelector("#container").append(box);
+})
+</script>
