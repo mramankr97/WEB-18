@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+<div id="nav">
+    <a href="signup.html">signup</a>
+    <a href="signin.html">signin</a>
+</div>
+
+    <form>
+        <p>Username</p>
+        <input type="text" id="username" placeholder="enter username">
+        <p>E-mail</p>
+        <input type="text" id="email" placeholder="enter email">
+        <p>Password</p>
+        <input type="text" id="password" placeholder="enter password">
+        <br>
+        <input type="submit" id="submit" >
+    </form>
+</body> 
+</html>
+
+<script>
+
+    var form=document.querySelector("form")
+    
+    form.addEventListener("submit",function(){
+      event.preventDefault();
+
+      var data={
+          userName:document.querySelector("form").username.value,
+          email:document.querySelector("form").email.value,
+          password:document.querySelector("form").password.value,
+      };
+                                       //stignify the data
+      localStorage.setItem("userData",JSON.stringify(data));
+
+      window.location.href="signin.html";
+    });
+
+</script>
